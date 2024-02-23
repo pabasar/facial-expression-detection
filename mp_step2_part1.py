@@ -1,4 +1,4 @@
-# Install the required libraries: MediaPipe for processing facial landmarks and torch for PyTorch
+# Install the required libraries
 !pip install -q mediapipe
 
 # Import the necessary libraries and modules
@@ -122,4 +122,3 @@ try:
 # Handle any errors or exceptions
 except Exception as e:
     print("An error occurred:", str(e))
-
