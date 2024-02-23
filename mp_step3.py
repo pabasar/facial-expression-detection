@@ -1,5 +1,5 @@
 # Install necessary libraries
-!pip install mediapipe xgboost
+!pip install mediapipe
 
 # Importing required modules
 from google.colab import drive
@@ -8,13 +8,6 @@ import matplotlib.pyplot as plt
 import pickle
 import cv2
 import mediapipe as mp
-import xgboost as xgb
-import torch
-
-# Check if a GPU is available for computations. If not, raise an error
-if not torch.cuda.is_available():
-    raise SystemError('GPU device not found')
-print('Found GPU:', torch.cuda.get_device_name())
 
 # Mount Google Drive to access the model file and images
 drive.mount('/content/drive')
@@ -35,14 +28,14 @@ def initialize_mediapipe_facemesh():
 def predict_expression(img_path, clf, facemesh):
     # Define a dictionary to map expression names
     label_to_expression = {
-        "anger": "Anger",
-        "contempt": "Contempt",
-        "disgust": "Disgust",
-        "fear": "Fear",
-        "happy": "Happy",
-        "neutral": "Neutral",
-        "sad": "Sad",
-        "surprise": "Surprise"
+        "0": "Anger",
+        "1": "Contempt",
+        "2": "Disgust",
+        "3": "Fear",
+        "4": "Happy",
+        "5": "Neutral",
+        "6": "Sad",
+        "7": "Surprise"
     }
 
     # Read the image from the path
